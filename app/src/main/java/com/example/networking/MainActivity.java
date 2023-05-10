@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        RecyclerView = findViewById(R.id.myRecycler_view);
+        RecyclerView = findViewById(R.id.MyRecyclerView);
         Mountain = new ArrayList<Mountain>();
         adapter = new MyAdapter(Mountain);
         RecyclerView.setAdapter(adapter);
@@ -42,13 +42,14 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
 
     @Override
     public void onPostExecute(String json) {
-        Log.d("MainActivity", json);
+        Log.d("snus", "onPostExecute: " +json);
+        Gson gson = new Gson();
+        Type type = new TypeToken<ArrayList<Mountain>>() {}.getType();
+        ArrayList<Mountain> data = gson.fromJson(json, type);
+        Mountain.addAll(data);
+        adapter.notifyDataSetChanged();
     }
-        Log.d("tomten", "onPostExecute: " +json);
 
-    Gson gson = new Gson();
-    Type type = new TypeToken<ArrayList<Mountain>>() {}.getType();
-    ArrayList<Mountain> data = gson.fromJson(json, type);
-    Mountain.addAll(data);
-    adapter.notifyDataSetChanged();
+
+
 }
