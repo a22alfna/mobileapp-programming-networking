@@ -2,34 +2,31 @@ package com.example.networking;
 
 public class Mountain {
     private String name;
-    private String location;
-    private int height;
+    private int size;
 
-    public Mountain()
-    {
-        name = "saknar namn";
-        location = "saknar plats";
-        height=1;
-    }
-    public Mountain (String n, String l, int h)
-    {
-        name=n;
-        location=l;
-        height=h;
+    public Mountain(String name, int size) {
+        this.name = name;
+        this.size = size;
     }
 
-    public String info(){
-        String tmp=new String();
-        tmp+=name+ " is located in mountain range "+location+" and reaches"+height+"m above sea level.";
-        return tmp;
-    }
-    public void setname(String n)
-    {
-        name=n;
-    }
-    public String getName()
-    {
+    public String getName() {
+
         return name;
+    }
+
+    public void setName(String name) {
+
+        this.name = name;
+    }
+
+    public int getSize() {
+
+        return size;
+    }
+
+    public void setSize(int size) {
+
+        this.size = size;
     }
 
 }
