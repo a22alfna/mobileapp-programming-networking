@@ -6,25 +6,30 @@ ID som jag döpte till "MyRecyclerView".
 ```
 <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/MyRecyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="402dp"
+        android:layout_height="537dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.498" />
+        app:layout_constraintVertical_bias="0.409" />
 ```
 Sedan skapade jag de olika nya classer som skulle finnas med. 
 En av dessa var "MyViewHolder" som användes för att hålla min view holder som tog emot datan som skulle
 användas i min recycler view.
 ```
 ...
-public MyViewHolder(@NonNull View itemView) {
+public class MyViewHolder extends RecyclerView.ViewHolder {
+    public TextView name;
+    public TextView size;
+
+    public MyViewHolder(@NonNull View itemView) {
         super(itemView);
         name = itemView.findViewById(R.id.name);
         size = itemView.findViewById(R.id.size);
     }
+
+}
 ...
 ```
 De andra classerna som skapades var "MyAdapter" och "Mountain"
@@ -57,15 +62,12 @@ public Mountain(String name, int size) {
         this.size = size;
     }
     public String getName() {
-
         return name;
     }
     public void setName(String name) {
-
         this.name = name;
     }
     public int getSize() {
-
         return size;
     }
 ...
@@ -76,4 +78,4 @@ public Mountain(String name, int size) {
 
 
 
-![img.png](img.png)
+![image](https://github.com/a22alfna/mobileapp-programming-networking/assets/129264882/72840b3b-129b-4e5b-98dc-761112e7f1c2)
